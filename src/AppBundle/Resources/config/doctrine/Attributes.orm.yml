@@ -1,0 +1,16 @@
+AppBundle\Entity\Attributes:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\AttributesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        attributeName:
+            type: string
+            length: '255'
+            column: attribute_name
+    lifecycleCallbacks: {  }

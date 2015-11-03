@@ -1,0 +1,16 @@
+AppBundle\Entity\Marks:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\MarksRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        marksName:
+            type: string
+            length: '255'
+            column: marks_name
+    lifecycleCallbacks: {  }

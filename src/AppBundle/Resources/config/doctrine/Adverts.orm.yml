@@ -1,0 +1,28 @@
+AppBundle\Entity\Adverts:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\AdvertsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        mark:
+            type: string
+            length: '255'
+        model:
+            type: string
+            length: 255
+        comment:
+            type: text
+        attributes:
+            type: text
+        markId:
+            type: integer
+            column: mark_id
+        modelId:
+            type: integer
+            column: model_id
+    lifecycleCallbacks: {  }

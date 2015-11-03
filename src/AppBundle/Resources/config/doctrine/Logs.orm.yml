@@ -1,0 +1,22 @@
+AppBundle\Entity\Logs:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\LogsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: datetime
+        responseCode:
+            type: integer
+        email:
+            type: string
+            length: '255'
+        apiName:
+            type: string
+            length: '255'
+    lifecycleCallbacks: {  }

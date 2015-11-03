@@ -1,0 +1,19 @@
+AppBundle\Entity\Models:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\ModelsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        modelsName:
+            type: string
+            length: '255'
+            column: models_name
+        markId:
+            type: integer
+            column: mark_id
+    lifecycleCallbacks: {  }
