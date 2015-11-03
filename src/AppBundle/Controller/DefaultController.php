@@ -72,7 +72,7 @@ class DefaultController extends Controller
         $em->persist($adverts);
         $em->flush();
 
-        $this->generateFlashData($input, 'You have successfuly posted your ad.');
+        $this->generateFlashData($input, 'Search parameters saved.');
     }
 
     /**
