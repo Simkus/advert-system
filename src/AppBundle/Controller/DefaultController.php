@@ -16,6 +16,9 @@ class DefaultController extends Controller
 {
 
     /**
+     * Main action which creates the view and gets
+     * required information from the database, etc
+     * @param mxied $request
      * @Route("/home", name="home")
      */
     public function indexAction(Request $request)
@@ -40,6 +43,10 @@ class DefaultController extends Controller
         return $this->render('AppBundle:home:index.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * Form processing and database insertion method
+     * @param array $data
+     */
     private function processForm(array $data)
     {
         if(!is_array($data) OR empty($data))
@@ -65,9 +72,14 @@ class DefaultController extends Controller
         $em->persist($adverts);
         $em->flush();
 
-        $this->generateFlashData($input);
+        $this->generateFlashData($input, 'You have successfuly posted your ad.');
     }
 
+    /**
+     * Retrieves a value (name) from the database
+     * @param int $id
+     * @param string $repo
+     */
     private function getValue($id, $repo)
     {
         $method = 'get' . ucwords($repo) . 'Name';
@@ -76,14 +88,19 @@ class DefaultController extends Controller
         return call_user_func_array(array($repo, $method), array());
     }
 
-    private function generateFlashData(array $input)
+    /**
+     * Generates a success flash message
+     * @param array $input
+     * @param optional $message
+     */
+    private function generateFlashData(array $input, $message = null)
     {
         $session = new Session;
         foreach($input as $key => $value) {
             $session->getFlashBag()->add($key, $value);
         }
 
-        $session->getFlashBag()->add("success", "You have successfuly posted your ad.");
+        $session->getFlashBag()->add("success", is_null($message) ? "Success" : $message);
     }
 
    /**
